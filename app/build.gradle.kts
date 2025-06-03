@@ -57,5 +57,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("com.owlsdepartment.charts:charts:1.0.0") //chart dependency
+
 }

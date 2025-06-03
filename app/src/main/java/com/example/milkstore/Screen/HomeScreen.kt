@@ -1,4 +1,4 @@
-package com.example.milkstore
+package com.example.milkstore.Screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,17 +20,18 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import com.example.milkstore.Components.BottomNavbar
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
+
 @Composable
-fun Home(){
+fun HomeScreen(){
 
     Column (
         modifier = Modifier
@@ -229,7 +230,7 @@ fun Home(){
             Button(
                 onClick = { /* Action */ },
                 modifier = Modifier
-                    .width(151.dp)
+                    .width(152.dp)
                     .height(40.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -240,14 +241,15 @@ fun Home(){
                 Text(
                     text = "Manage Product",
                     color = Color(0xff121A0F),
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold
                 )
             }
 
             Button(
                 onClick = { /* Action */ },
                 modifier = Modifier
-                    .width(151.dp)
+                    .width(152.dp)
                     .height(40.dp),
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -258,7 +260,8 @@ fun Home(){
                 Text(
                     text = "View Orders",
                     color = Color(0xff121A0F),
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold
                 )
             }
         }
@@ -282,15 +285,18 @@ fun Home(){
                 )
             ) {
                 Text(
-                    text ="View Orders",
+                    text ="Customer Detail",
                     color = Color(0xff121A0F),
-                    fontSize = 14.sp
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold
 
                 )
             }
 
         }
+        BottomNavbar()
     }
 
 
 }
+
