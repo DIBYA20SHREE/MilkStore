@@ -21,13 +21,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import com.example.milkstore.Components.BottomNavbar
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 
 
 @Composable
@@ -36,7 +37,7 @@ fun HomeScreen(){
     Column (
         modifier = Modifier
             .fillMaxSize()
-            .fillMaxHeight()
+            .fillMaxWidth()
     ){
         Box(
             modifier = Modifier
@@ -294,9 +295,20 @@ fun HomeScreen(){
             }
 
         }
-        BottomNavbar()
+//        Box(
+//            contentAlignment = Alignment.BottomCenter
+//        ){
+//            BottomNavbar(navController = NavController)
+//        }
+
     }
 
 
+}
+
+@Preview(showSystemUi = true)
+@Composable
+fun HomescreenPreview(){
+    HomeScreen()
 }
 
