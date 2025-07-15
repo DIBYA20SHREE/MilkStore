@@ -39,12 +39,12 @@ The complete UI was designed on Figma, following clean, minimal, and intuitive l
 
 <!-- Add your screenshots in the repo and reference like below -->
 <p float="left">
-  <img src="Screenshots (263).png" width="250" />
-  <img src="Screenshots (262).png" width="250" />
-  <img src="Screenshots (261).png" width="250" />
-  <img src="Screenshots (260).png" width="250" />
-  <img src="Screenshots (259).png" width="250" />
-  <img src="Screenshots (258).png" width="250" />
+  <img src="Screenshot (263).png" width="250" />
+  <img src="Screenshot (262).png" width="250" />
+  <img src="Screenshot (261).png" width="250" />
+  <img src="Screenshot (260).png" width="250" />
+  <img src="Screenshot (259).png" width="250" />
+  <img src="Screenshot (258).png" width="250" />
 </p>
 
 ---
