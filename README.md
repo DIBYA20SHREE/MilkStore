@@ -10,7 +10,7 @@ This app was developed as part of a freelance project aimed at improving busines
 
 The complete UI was designed on Figma, following clean, minimal, and intuitive layout principles to ensure ease of use for non-tech-savvy users.
 
-🔗 **Figma UI Prototype:** [Click to View Design](https://www.figma.com/file/your-figma-prototype-link)
+🔗 **Figma UI Prototype:** [Click to View Design]([https://www.figma.com/file/your-figma-prototype-link](https://www.figma.com/design/oyUreFBcECBycw9vApXtik/MilkStore-design2?node-id=0-1&p=f&t=dEwpLZEPFuk2EbRb-0))
 
 ---
 
