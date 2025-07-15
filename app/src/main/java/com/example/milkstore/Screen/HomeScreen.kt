@@ -6,21 +6,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import com.example.milkstore.Components.BottomNavbar
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,283 +22,131 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavController
+import com.example.milkstore.data.Model.DashboardCard
 
 
 @Composable
-fun HomeScreen(){
-
-    Column (
+fun HomeScreen() {
+    Column(
         modifier = Modifier
-            .fillMaxSize()
             .fillMaxWidth()
-    ){
-        Box(
+            .fillMaxHeight() // Required for vertical weight distribution
+            .padding(16.dp)
+    ) {
+        Text(
+            text = "Dashboard",
+            fontWeight = FontWeight.Bold,
+            fontSize = 22.sp,
             modifier = Modifier
-                .padding(24.dp)
                 .fillMaxWidth()
-                .height(72.dp),
+                .padding(vertical = 16.dp),
+            textAlign = TextAlign.Center
+        )
 
-            contentAlignment = Alignment.Center
-        ){
-            Row (horizontalArrangement = Arrangement.spacedBy(16.dp)){
-                Text(
-                    text = "Dashboard",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp
-                )
-
-            }
-        }
-
-
-
-
-
-        Box(
-            modifier = Modifier
-                .padding(start = 24.dp)
-                .padding(end = 24.dp)
-                .fillMaxWidth()
-                .height(268.dp),
-
-            contentAlignment = Alignment.TopCenter
-        ){
-            Column {
-                Row (horizontalArrangement = Arrangement.spacedBy(16.dp)
-                ){
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFEBF2E8)
-                        ),
-                        modifier = Modifier
-                            .size(width = 171.dp, height = 110.dp)
-                    ) {
-
-                        Column(
-                            modifier = Modifier.fillMaxSize(),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ){
-                            Text(
-                                text = "Total Sales",
-                                fontSize = 16.sp,
-                                textAlign = TextAlign.Center,
-                                color = Color(0xFF121A0F),
-                            )
-                            Spacer(Modifier.height(8.dp))
-
-                            Text(
-                                text = "\$12,500",
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold,
-                                textAlign = TextAlign.Center,
-                                color = Color(0xFF121A0F),
-                            )
-                        }
-
-                    }
-                    Card(
-                        colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFEBF2E8)
-                        ),
-                        modifier = Modifier
-                            .size(width = 171.dp, height = 110.dp)
-                    ) {
-
-                        Column(
-                            modifier = Modifier.fillMaxSize(),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ){
-                            Text(
-                                text = "Total Orders",
-                                fontSize = 16.sp,
-                                textAlign = TextAlign.Center,
-                                color = Color(0xFF121A0F),
-                            )
-                            Spacer(Modifier.height(8.dp))
-
-                            Text(
-                                text = "350",
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold,
-                                textAlign = TextAlign.Center,
-                                color = Color(0xFF121A0F),
-                            )
-                        }
-
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color(0xFFEBF2E8)
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height (110.dp)
-                ) {
-
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.Start
-                    ){
-                        Text(
-                            modifier = Modifier.padding(start = 14.dp),
-                            text = "Customer Count",
-                            fontSize = 16.sp,
-                            color = Color(0xFF121A0F),
-                        )
-                        Spacer(Modifier.height(8.dp))
-
-                        Text(
-                            modifier = Modifier.padding(start =14.dp),
-                            text = "120",
-                            fontSize = 24.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = Color(0xFF121A0F),
-                        )
-                    }
-
-                }
-
-            }
-        }
-
-
-        Box(
-            modifier = Modifier
-                .padding(start = 24.dp)
-                .padding(end = 24.dp)
-                .fillMaxWidth()
-                .height(268.dp),
-        ){
-            Column(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text= "Sales Trends (Last Month)",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium
-                )
-                Text(
-                    text = "\$12,500",
-                    fontSize = 32.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Row {
-                    Text(
-                        text = "Last Month ",
-                        fontSize = 16.sp,
-                        color = Color(0xff639154)
-                    )
-                    Text(
-                        text = "+15%",
-                        fontSize = 16.sp,
-                        color = Color(0xff639154)
-                    )
-                }
-                Box(
-                    modifier = Modifier.fillMaxHeight()
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.Center,
-                ){
-                    Text(
-                        text = "Graph",
-                        textAlign = TextAlign.Center
-                    )
-                }
-            }
-        }
-
-
+        // Section 1: Row with 2 cards (horizontal weight)
         Row(
             modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, top = 16.dp) // Equal padding on all sides (top, bottom, start, end)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween // Places buttons with space in between
+                .fillMaxWidth()
+                .weight(1f), // Take 1 unit of vertical space
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            DashboardCard(
+                title = "Total Sales",
+                value = "$12,500",
+                modifier = Modifier.weight(1f)
+            )
+            DashboardCard(
+                title = "Total Orders",
+                value = "350",
+                modifier = Modifier.weight(1f)
+            )
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Section 2: Customer Count Card
+        DashboardCard(
+            title = "Customer Count",
+            value = "120",
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f) // Take 1 unit vertical space
+        )
+
+        // Section 3: Sales Trends
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top= 8.dp)
+                .weight(3f) // More vertical space for trend section
+        ) {
+
+            Text("Sales Trends (Last Month)", fontSize = 16.sp)
+            Text("\$12,500", fontSize = 28.sp, fontWeight = FontWeight.Bold)
+            Row {
+                Text("Last Month ", color = Color(0xff639154))
+                Text("+15%", color = Color(0xff639154))
+            }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f), // Graph fills remaining vertical space
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Graph")
+            }
+        }
+
+        // Section 4: Buttons
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Button(
-                onClick = { /* Action */ },
+                onClick = {},
                 modifier = Modifier
-                    .width(152.dp)
-                    .height(40.dp),
+                    .weight(1f)
+                    .height(50.dp),
                 shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xff54D12B),
-                    contentColor = Color.White
-                )
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xff54D12B))
             ) {
-                Text(
-                    text = "Manage Product",
-                    color = Color(0xff121A0F),
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                Text("Manage", color = Color.Black, fontSize = 18.sp)
             }
 
             Button(
-                onClick = { /* Action */ },
+                onClick = {},
                 modifier = Modifier
-                    .width(152.dp)
-                    .height(40.dp),
+                    .weight(1f)
+                    .height(50.dp),
                 shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xffEBF2E8),
-                    contentColor = Color.White
-                )
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEBF2E8))
             ) {
-                Text(
-                    text = "View Orders",
-                    color = Color(0xff121A0F),
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                Text("View Orders", color = Color.Black, fontSize = 18.sp)
             }
         }
 
-        Box(
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Section 5: Customer Detail Button
+        Button(
+            onClick = {},
             modifier = Modifier
-                .padding()
-                .height(64.dp)
-                .fillMaxWidth(),
-            contentAlignment = Alignment.Center
-        ){
-            Button(onClick = {
-                //Action :
-            }, modifier = Modifier.padding(start= 16.dp)
-                .padding(end = 16.dp)
-                .fillMaxWidth(),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xffEBF2E8),
-                    contentColor = Color.White
-                )
-            ) {
-                Text(
-                    text ="Customer Detail",
-                    color = Color(0xff121A0F),
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold
-
-                )
-            }
-
+                .fillMaxWidth()
+                .height(50.dp)
+                .weight(1f), // Takes vertical space equally
+            shape = RoundedCornerShape(8.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEBF2E8))
+        ) {
+            Text("Customer Detail", color = Color.Black, fontSize = 18.sp)
         }
-//        Box(
-//            contentAlignment = Alignment.BottomCenter
-//        ){
-//            BottomNavbar(navController = NavController)
-//        }
 
+        Spacer(modifier = Modifier.height(12.dp)) // for bottom padding
     }
-
-
 }
+
 
 @Preview(showSystemUi = true)
 @Composable

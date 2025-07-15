@@ -32,9 +32,9 @@ fun DashboardCard(title: String, value: String, modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
-            Text(title, fontSize = 14.sp)
+            Text(title, fontSize = 18.sp)
             Spacer(modifier = Modifier.height(4.dp))
-            Text(value, fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            Text(value, fontSize = 25.sp, fontWeight = FontWeight.Bold)
         }
     }
 }
