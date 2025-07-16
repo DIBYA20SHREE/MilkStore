@@ -1,4 +1,4 @@
-package com.example.milkstore.data.Model
+package com.example.milkstore.data.model
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

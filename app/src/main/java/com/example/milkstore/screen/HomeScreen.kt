@@ -1,4 +1,4 @@
-package com.example.milkstore.Screen
+package com.example.milkstore.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,129 +25,140 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.milkstore.data.Model.DashboardCard
+import com.example.milkstore.data.model.DashboardCard
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight() // Required for vertical weight distribution
-            .padding(16.dp)
-    ) {
-        Text(
-            text = "Dashboard",
-            fontWeight = FontWeight.Bold,
-            fontSize = 22.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp),
-            textAlign = TextAlign.Center
-        )
 
-        // Section 1: Row with 2 cards (horizontal weight)
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f), // Take 1 unit of vertical space
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            DashboardCard(
-                title = "Total Sales",
-                value = "$12,500",
-                modifier = Modifier.weight(1f)
-            )
-            DashboardCard(
-                title = "Total Orders",
-                value = "350",
-                modifier = Modifier.weight(1f)
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                modifier = Modifier.padding(top = 0.dp),
+                title = {
+                    Text(
+                        text = "Dashboard",
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.Bold
+                        )
+                }
             )
         }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        // Section 2: Customer Count Card
-        DashboardCard(
-            title = "Customer Count",
-            value = "120",
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f) // Take 1 unit vertical space
-        )
-
-        // Section 3: Sales Trends
+    ) { innerPadding ->
         Column(
             modifier = Modifier
+                .padding(innerPadding)
                 .fillMaxWidth()
-                .padding(top= 8.dp)
-                .weight(3f) // More vertical space for trend section
+                .fillMaxHeight() // Required for vertical weight distribution
+                .padding(16.dp)
         ) {
 
-            Text("Sales Trends (Last Month)", fontSize = 16.sp)
-            Text("\$12,500", fontSize = 28.sp, fontWeight = FontWeight.Bold)
-            Row {
-                Text("Last Month ", color = Color(0xff639154))
-                Text("+15%", color = Color(0xff639154))
-            }
-            Box(
+            // Section 1: Row with 2 cards (horizontal weight)
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(1f), // Graph fills remaining vertical space
-                contentAlignment = Alignment.Center
+                    .weight(1f), // Take 1 unit of vertical space
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Text("Graph")
+                DashboardCard(
+                    title = "Total Sales",
+                    value = "$12,500",
+                    modifier = Modifier.weight(1f)
+                )
+                DashboardCard(
+                    title = "Total Orders",
+                    value = "350",
+                    modifier = Modifier.weight(1f)
+                )
             }
-        }
 
-        // Section 4: Buttons
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Section 2: Customer Count Card
+            DashboardCard(
+                title = "Customer Count",
+                value = "120",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f) // Take 1 unit vertical space
+            )
+
+            // Section 3: Sales Trends
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top= 8.dp)
+                    .weight(3f) // More vertical space for trend section
+            ) {
+
+                Text("Sales Trends (Last Month)", fontSize = 16.sp)
+                Text("\$12,500", fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                Row {
+                    Text("Last Month ", color = Color(0xff639154))
+                    Text("+15%", color = Color(0xff639154))
+                }
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f), // Graph fills remaining vertical space
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("Graph")
+                }
+            }
+
+            // Section 4: Buttons
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Button(
+                    onClick = {},
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(50.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xff54D12B))
+                ) {
+                    Text("Manage", color = Color.Black, fontSize = 18.sp)
+                }
+
+                Button(
+                    onClick = {},
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(50.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEBF2E8))
+                ) {
+                    Text("View Orders", color = Color.Black, fontSize = 18.sp)
+                }
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Section 5: Customer Detail Button
             Button(
                 onClick = {},
                 modifier = Modifier
-                    .weight(1f)
-                    .height(50.dp),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xff54D12B))
-            ) {
-                Text("Manage", color = Color.Black, fontSize = 18.sp)
-            }
-
-            Button(
-                onClick = {},
-                modifier = Modifier
-                    .weight(1f)
-                    .height(50.dp),
+                    .fillMaxWidth()
+                    .height(50.dp)
+                    .weight(1f), // Takes vertical space equally
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEBF2E8))
             ) {
-                Text("View Orders", color = Color.Black, fontSize = 18.sp)
+                Text("Customer Detail", color = Color.Black, fontSize = 18.sp)
             }
+
+            Spacer(modifier = Modifier.height(12.dp)) // for bottom padding
         }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        // Section 5: Customer Detail Button
-        Button(
-            onClick = {},
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
-                .weight(1f), // Takes vertical space equally
-            shape = RoundedCornerShape(8.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEBF2E8))
-        ) {
-            Text("Customer Detail", color = Color.Black, fontSize = 18.sp)
-        }
-
-        Spacer(modifier = Modifier.height(12.dp)) // for bottom padding
     }
+
+
 }
 
 

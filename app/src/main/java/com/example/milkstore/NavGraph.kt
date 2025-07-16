@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.milkstore.Screen.*
+import com.example.milkstore.screen.*
 
 
 @Composable
@@ -22,5 +22,6 @@ fun AppNavGraph(
         composable("products") { ProductScreen() }
         composable("orders") { OrderScreen() }
         composable("customers") { CustomerScreen() }
+        composable("ItemDescription"){ ItemDetail() }
     }
 }

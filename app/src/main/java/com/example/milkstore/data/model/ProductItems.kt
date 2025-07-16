@@ -1,4 +1,4 @@
-package com.example.milkstore.data.Model
+package com.example.milkstore.data.model
 
 
 import androidx.compose.foundation.layout.Arrangement
@@ -10,10 +10,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.milkstore.ui.theme.LightGreen
 
 @Composable
 fun ProductItem(name: String, stock: Int, price: Double) {
@@ -30,7 +30,7 @@ fun ProductItem(name: String, stock: Int, price: Double) {
             )
             Text(
                 text = "Stock: $stock",
-                style = MaterialTheme.typography.bodySmall.copy(color = Color(0xFF4CAF50)) // Green color
+                style = MaterialTheme.typography.bodySmall.copy(color = LightGreen) // Green color
             )
         }
 
