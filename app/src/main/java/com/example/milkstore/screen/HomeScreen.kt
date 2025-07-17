@@ -20,22 +20,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.milkstore.data.model.DashboardCard
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.navigation.NavController
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
 
     Scaffold(
+        contentWindowInsets = WindowInsets(0),
         topBar = {
             CenterAlignedTopAppBar(
-                modifier = Modifier.padding(top = 0.dp),
+
                 title = {
                     Text(
                         text = "Dashboard",
@@ -64,7 +66,8 @@ fun HomeScreen() {
                 DashboardCard(
                     title = "Total Sales",
                     value = "$12,500",
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier
+                        .weight(1f)
                 )
                 DashboardCard(
                     title = "Total Orders",
@@ -73,7 +76,7 @@ fun HomeScreen() {
                 )
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             // Section 2: Customer Count Card
             DashboardCard(
@@ -83,6 +86,8 @@ fun HomeScreen() {
                     .fillMaxWidth()
                     .weight(1f) // Take 1 unit vertical space
             )
+
+            Spacer(modifier = Modifier.height(16.dp))
 
             // Section 3: Sales Trends
             Column(
@@ -117,10 +122,12 @@ fun HomeScreen() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Button(
-                    onClick = {},
+                    onClick = {
+
+                    },
                     modifier = Modifier
                         .weight(1f)
-                        .height(50.dp),
+                        .height(40.dp),
                     shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xff54D12B))
                 ) {
@@ -128,10 +135,12 @@ fun HomeScreen() {
                 }
 
                 Button(
-                    onClick = {},
+                    onClick = {
+                        navController.navigate("orders")
+                    },
                     modifier = Modifier
                         .weight(1f)
-                        .height(50.dp),
+                        .height(40.dp),
                     shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEBF2E8))
                 ) {
@@ -143,11 +152,12 @@ fun HomeScreen() {
 
             // Section 5: Customer Detail Button
             Button(
-                onClick = {},
+                onClick = {
+                    navController.navigate("customers")
+                },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp)
-                    .weight(1f), // Takes vertical space equally
+                    .height(40.dp), // Takes vertical space equally
                 shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFEBF2E8))
             ) {
@@ -162,9 +172,5 @@ fun HomeScreen() {
 }
 
 
-@Preview(showSystemUi = true)
-@Composable
-fun HomescreenPreview(){
-    HomeScreen()
-}
+
 

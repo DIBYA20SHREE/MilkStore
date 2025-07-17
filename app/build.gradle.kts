@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation (libs.androidx.navigation.compose.v275)
 
+    implementation(libs.material3)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -18,10 +18,10 @@ fun AppNavGraph(
         startDestination = "home",
         modifier = modifier
     ) {
-        composable("home") { HomeScreen() }
-        composable("products") { ProductScreen() }
+        composable("home") { HomeScreen(navController) }
+        composable("products") { ProductScreen(navController) }
         composable("orders") { OrderScreen() }
         composable("customers") { CustomerScreen() }
-        composable("ItemDescription"){ ItemDetail() }
+        composable("Item"){ ItemDetail() }
     }
 }

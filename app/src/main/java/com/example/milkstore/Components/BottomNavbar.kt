@@ -28,8 +28,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.example.milkstore.Model.BottomNavbarItem
-import androidx.navigation.NavOptionsBuilder
-import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun BottomNavbar(
@@ -70,7 +68,8 @@ fun BottomNavbar(
                             }
                             navController.navigate(route) {
                                 popUpTo(navController.graph.startDestinationId) {
-                                    saveState = true
+                                    inclusive = false
+
                                 }
                                 launchSingleTop = true
                                 restoreState = true
