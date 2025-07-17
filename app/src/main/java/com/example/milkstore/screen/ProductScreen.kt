@@ -31,6 +31,16 @@ fun ProductScreen(
         Triple("Skim Milk", 80, 3.00),
         Triple("Chocolate Milk", 120, 4.00),
         Triple("Almond Milk", 90, 4.50),
+        Triple("Soy Milk", 60, 4.20),
+        Triple("Whole Milk", 150, 3.50),
+        Triple("Skim Milk", 80, 3.00),
+        Triple("Chocolate Milk", 120, 4.00),
+        Triple("Almond Milk", 90, 4.50),
+        Triple("Soy Milk", 60, 4.20),
+        Triple("Whole Milk", 150, 3.50),
+        Triple("Skim Milk", 80, 3.00),
+        Triple("Chocolate Milk", 120, 4.00),
+        Triple("Almond Milk", 90, 4.50),
         Triple("Soy Milk", 60, 4.20)
     )
 
@@ -81,14 +91,14 @@ fun ProductScreen(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier
                     .fillMaxSize()
-                    .clickable {
-                        navController.navigate("Item")
-                    }
             ) {
                 items(products) { (name, stock, price) ->
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .clickable {
+                                navController.navigate("Item")
+                            }
                             .border(
                                 width = 2.dp,
                                 color = Color.LightGray,

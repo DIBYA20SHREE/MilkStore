@@ -22,6 +22,6 @@ fun AppNavGraph(
         composable("products") { ProductScreen(navController) }
         composable("orders") { OrderScreen() }
         composable("customers") { CustomerScreen() }
-        composable("Item"){ ItemDetail() }
+        composable("Item"){ ItemDetail(navController) }
     }
 }
